@@ -1,4 +1,9 @@
-import { ADD_TODO, FETCH_TODOS, REMOVE_TODO } from "../actions/types";
+import {
+  ADD_TODO,
+  FETCH_TODOS,
+  REMOVE_TODO,
+  OPEN_MODAL
+} from "../actions/types";
 
 const initialState = {
   items: [],
@@ -27,6 +32,13 @@ export default function (state = initialState, action) {
       //return state;
 
       return { ...state, items: filtered };
+
+    case OPEN_MODAL:
+      console.log(action.payload);
+      console.log(
+        "todosReducer appelé mais il n'y a rien à faire avec des données"
+      );
+      return state;
 
     default:
       return state;

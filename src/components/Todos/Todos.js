@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { fetchTodos, removeTodo } from "../../actions/todosActions";
+import { fetchTodos, removeTodo, openModal } from "../../actions/todosActions";
 
 import AddTodoForm from "./AddTodoForm";
 
 import PropTypes from "prop-types";
 
 import "./Todos.scss";
+import $ from "jquery";
 
 class Todos extends Component {
   componentWillMount() {
@@ -15,17 +16,8 @@ class Todos extends Component {
   }
 
   handleEdit = todoId => {
-    alert("handleedith");
-    alert(todoId);
-
-    //La je déclencherais une action...
-    //On peux pas se passer de redux pour ce genre de truc
-
-    /*
-      Mon action, ce serait quoi ? 
-      Ouvrir la modal ? 
-
-    */
+    $("#exampleModal").modal();
+    this.props.openModal(todoId);
   };
 
   handleRemove = todoId => {
@@ -106,4 +98,6 @@ const mapStateToProps = state => ({
   newTodo: state.todos.newTodo
 });
 // export default Todos;
-export default connect(mapStateToProps, { fetchTodos, removeTodo })(Todos);
+export default connect(mapStateToProps, { fetchTodos, removeTodo, openModal })(
+  Todos
+);

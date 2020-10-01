@@ -2,7 +2,7 @@ import React from "react";
 
 function Modal() {
   return (
-    <div className="modal" id="#exampleModal" tabIndex="-1">
+    <div className="modal" id="exampleModal" tabIndex="-1">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">

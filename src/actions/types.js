@@ -7,3 +7,5 @@ export const REMOVE_TODO = "REMOVE_TODO";
 
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
+
+export const OPEN_MODAL = "OPEN_MODAL";

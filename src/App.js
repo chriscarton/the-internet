@@ -16,9 +16,12 @@ import RandomCat from "./components/RandomCat/RandomCat";
 import Todos from "./components/Todos/Todos";
 import Login from "./components/Login/Login";
 
+import Modal from "./components/common/Modal";
+
 function App() {
   return (
     <div className="App">
+      <Modal />
       <header id="appHeader">
         {/* <h1 id="appTitle">The internet</h1> */}
         <img src={process.env.PUBLIC_URL + "img/ban.jpg"} alt="The Internet" />

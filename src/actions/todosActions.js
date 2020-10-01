@@ -1,4 +1,4 @@
-import { FETCH_TODOS, ADD_TODO, REMOVE_TODO } from "./types";
+import { FETCH_TODOS, ADD_TODO, REMOVE_TODO, OPEN_MODAL } from "./types";
 
 export const fetchTodos = () => dispatch => {
   fetch("http://localhost:1337/todos")
@@ -44,6 +44,27 @@ export const removeTodo = postData => dispatch => {
     .then(data =>
       dispatch({
         type: REMOVE_TODO,
+        payload: data
+      })
+    );
+};
+
+export const openModal = todoId => dispatch => {
+  //C'est ici que je pourrais fetch...
+  /*
+  dispatch({
+    type: OPEN_MODAL,
+    payload: todoId
+  })
+  */
+
+  fetch("http://localhost:1337/todos/" + todoId, {
+    method: "GET"
+  })
+    .then(res => res.json())
+    .then(data =>
+      dispatch({
+        type: OPEN_MODAL,
         payload: data
       })
     );

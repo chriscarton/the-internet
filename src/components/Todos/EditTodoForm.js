@@ -1,48 +1,41 @@
 import React, { Component } from "react";
 
 class EditTodoForm extends Component {
-  //Est-ce que ça, ça devrait être là... ?
-  //Un composant fonctionnel ?
-  //Un composant classe ?
-  bootstrapModal = () => (
-    <div className="modal" id="#exampleModal" tabIndex="-1">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: ""
+    };
+  }
+
+  handleChange = e => {
+    console.log("handleChange!!!");
+    this.setState({ name: e.target.value });
+  };
+
+  handleSubmit = () => {
+    console.log("handle submit handle submit...");
+  };
 
   render() {
     return (
       <div>
-        <h1>Edit todo</h1>
+        <form onSubmit={this.handleSubmit}>
+          {/* <div>{this.props.jwt}</div> */}
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Chose à faire"
+              onChange={() => this.handleChange}
+              name="name"
+              value={this.state.name}
+            />
+          </div>
+          <div className="form-group text-center">
+            <input type="submit" className="btn btn-primary" value={"Éditer"} />
+          </div>
+        </form>
       </div>
     );
   }
