@@ -1,0 +1,30 @@
+.todo {
+  border-bottom: 1px solid black;
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+}
+.todo-functions {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  .btn {
+    margin: 5px;
+    margin-right: 0px;
+  }
+}
+#userIsLogged {
+  //border: 1px solid black;
+  margin-top: 15px;
+  text-align: center;
+  h1 {
+    color: white;
+    margin: 0px;
+  }
+  .logged {
+    background-color: green;
+  }
+  .not-logged {
+    background-color: red;
+  }
+}
