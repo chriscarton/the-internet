@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addTodo } from "../../actions/todosActions";
 
-class TodoForm extends Component {
+class AddTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,4 +59,4 @@ const mapStateToProps = state => ({
   newTodo: state.todos.newTodo
 });
 
-export default connect(mapStateToProps, { addTodo })(TodoForm);
+export default connect(mapStateToProps, { addTodo })(AddTodoForm);

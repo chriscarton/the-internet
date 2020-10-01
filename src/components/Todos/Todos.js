@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchTodos, removeTodo } from "../../actions/todosActions";
 
-import TodoForm from "./TodoForm";
+import AddTodoForm from "./AddTodoForm";
 
 import PropTypes from "prop-types";
 
@@ -14,43 +14,18 @@ class Todos extends Component {
     this.props.fetchTodos();
   }
 
-  bootstrapModal = () => (
-    <div className="modal" id="#exampleModal" tabIndex="-1">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
-            <button
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
   handleEdit = todoId => {
     alert("handleedith");
     alert(todoId);
+
+    //La je déclencherais une action...
+    //On peux pas se passer de redux pour ce genre de truc
+
+    /*
+      Mon action, ce serait quoi ? 
+      Ouvrir la modal ? 
+
+    */
   };
 
   handleRemove = todoId => {
@@ -70,18 +45,6 @@ class Todos extends Component {
 
     return (
       <div id="Todos" className="module">
-        <div>
-          {this.bootstrapModal()}
-          <button
-            type="button"
-            className="btn btn-primary"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            Launch demo modal
-          </button>
-        </div>
-
         <h1>Todos!</h1>
         <div id="todoList">
           {todos.map(todo => (
@@ -123,7 +86,7 @@ class Todos extends Component {
         
         */}
 
-        <div>{userIsLogged && <TodoForm jwt={jwt} />}</div>
+        <div>{userIsLogged && <AddTodoForm jwt={jwt} />}</div>
       </div>
     );
   }
