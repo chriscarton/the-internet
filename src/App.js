@@ -2,7 +2,11 @@ import React from "react";
 
 import "./App.scss";
 
+import "jquery";
+import "popper.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+
 import "font-awesome/css/font-awesome.css";
 
 import RandomCat from "./components/RandomCat/RandomCat";
@@ -21,7 +25,7 @@ function App() {
       </header>
       <div className="container">
         <div className="main-grid">
-          <RandomCat />
+          {/* <RandomCat /> */}
           {/* <Bored /> */}
           {/* <Coiffure /> */}
           {/* <Jokes /> */}

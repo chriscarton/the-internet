@@ -32,4 +32,4 @@ export default function (state = initialState, action) {
       return state;
   }
 }
-//A MESSY WORK ABOUT A MESSY THINK : THE INTERNET, WITHOUT MESSI BUT WITH REACT, REDUX AND STRAPI.
+//A MESSY WORK ABOUT A MESSY THINK : THE INTERNET, WITHOUT MESSI BUT WITH REACT AND REDUX INTERFACED WITH A STRAPI API (external project). Trying to figure it out how Redux works.

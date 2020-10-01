@@ -26,10 +26,11 @@ class TodoForm extends Component {
   };
 
   render() {
+    // console.log(this.props);
+    //todoToEdit is undefined...
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <h2>Quelque chose à ajouter ?</h2>
           {/* <div>{this.props.jwt}</div> */}
           <div className="form-group">
             <input
@@ -38,13 +39,14 @@ class TodoForm extends Component {
               placeholder="Chose à faire"
               onChange={this.handleChange}
               name="name"
+              value={this.props.newTodo.name ?? ""}
             />
           </div>
           <div className="form-group text-center">
             <input
               type="submit"
               className="btn btn-primary"
-              placeholder="Ajouter"
+              value={this.props.submitText ?? "Ajouter"}
             />
           </div>
         </form>

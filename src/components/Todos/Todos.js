@@ -14,6 +14,45 @@ class Todos extends Component {
     this.props.fetchTodos();
   }
 
+  bootstrapModal = () => (
+    <div className="modal" id="#exampleModal" tabIndex="-1">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title">Modal title</h5>
+            <button
+              type="button"
+              className="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div className="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div className="modal-footer">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" className="btn btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+  handleEdit = todoId => {
+    alert("handleedith");
+    alert(todoId);
+  };
+
   handleRemove = todoId => {
     // alert("remove " + todoId);
 
@@ -24,11 +63,25 @@ class Todos extends Component {
 
   render() {
     let todos = this.props.todos;
-    let userIsLogged = this.props.userIsLogged;
+    //let userIsLogged = this.props.userIsLogged;
     let jwt = this.props.jwt;
+
+    let userIsLogged = true;
 
     return (
       <div id="Todos" className="module">
+        <div>
+          {this.bootstrapModal()}
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Launch demo modal
+          </button>
+        </div>
+
         <h1>Todos!</h1>
         <div id="todoList">
           {todos.map(todo => (
@@ -39,7 +92,7 @@ class Todos extends Component {
                   <a
                     href="#Todos"
                     className="btn btn-primary btn-sm"
-                    onClick={this.handleEdit}
+                    onClick={() => this.handleEdit(todo.id)}
                   >
                     <i className="fa fa-edit"></i>
                   </a>
