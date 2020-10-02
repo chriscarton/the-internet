@@ -11,13 +11,15 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "font-awesome/css/font-awesome.css";
 
 import RandomCat from "./components/RandomCat/RandomCat";
-//import Bored from "./components/Bored/Bored";
-//import Coiffure from "./components/Coiffure/Coiffure";
-// import Jokes from "./components/Jokes/Jokes";
 import Todos from "./components/Todos/Todos";
 import Login from "./components/Login/Login";
 
 import Modal from "./components/common/Modal";
+
+//D'autres composants sur lesquels je pourrais travailler
+//import Bored from "./components/Bored/Bored";
+//import Coiffure from "./components/Coiffure/Coiffure";
+// import Jokes from "./components/Jokes/Jokes";
 
 function App() {
   return (

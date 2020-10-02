@@ -19,16 +19,13 @@ export default function (state = initialState, action) {
     case FETCH_TODOS:
       return { ...state, items: action.payload };
     case ADD_TODO:
-      //I GET IT FUCK
       return { ...state, items: [...state.items, { ...action.payload }] };
-    // return state;
     case REMOVE_TODO:
-      console.log(action.payload);
-
       const filtered = state.items.filter(function (myItem) {
         if (myItem.id !== action.payload.id) {
           return true;
         }
+        return false;
       });
 
       return { ...state, items: filtered };
@@ -37,7 +34,6 @@ export default function (state = initialState, action) {
       return { ...state, todoToEdit: action.payload };
 
     case EDIT_TODO_SUBMIT:
-      // console.log(action.payload);
       const edited_todo = action.payload;
 
       const filtered2 = state.items.map(function (todo) {

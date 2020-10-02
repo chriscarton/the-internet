@@ -21,10 +21,10 @@ class Todos extends Component {
   };
 
   handleRemove = todoId => {
-    // alert("remove " + todoId);
-
-    const postData = { id: todoId, jwt: this.props.jwt };
-
+    const postData = {
+      id: todoId,
+      jwt: this.props.jwt
+    };
     this.props.removeTodo(postData);
   };
 
@@ -35,7 +35,7 @@ class Todos extends Component {
 
     return (
       <div id="Todos" className="module">
-        <h1>Todos!</h1>
+        <h1 className="title">Todos!</h1>
         <div id="todoList">
           {todos.map(todo => (
             <div className="todo" key={todo.id}>

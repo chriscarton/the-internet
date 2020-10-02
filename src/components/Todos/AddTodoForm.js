@@ -17,24 +17,23 @@ class AddTodoForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
     const todo = {
       name: this.state.name,
       jwt: this.props.jwt
     };
-    //Call action
+
     this.props.addTodo(todo);
+
     this.setState({
       name: ""
     });
   };
 
   render() {
-    // console.log(this.props);
-    //todoToEdit is undefined...
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          {/* <div>{this.props.jwt}</div> */}
           <div className="form-group">
             <input
               className="form-control"

@@ -15,9 +15,8 @@ export const login = postData => dispatch => {
     });
     const response = await rawResponse.json();
 
-    //Une erreur
+    //S'il y a une erreur
     if (response.statusCode === 400) {
-      //alert("erreur!");
       //Ce code fonctionne mais on va gérer plus tard...
 
       let errors = response.message;
@@ -34,7 +33,7 @@ export const login = postData => dispatch => {
     } else {
       response.logged = true;
       response.identifier = postData.identifier;
-      // console.log(response);
+
       response.errors = [];
 
       dispatch({
@@ -45,9 +44,9 @@ export const login = postData => dispatch => {
   })();
 };
 
+//Faux logout pour l'instant
 export const logout = () => dispatch => {
   alert("logout action trigger");
-  //Faux logout pour l'instant
   dispatch({
     type: LOGOUT,
     payload: {}

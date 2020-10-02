@@ -8,15 +8,13 @@ import $ from "jquery";
 class EditTodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { id: "", name: "" };
+    this.state = {
+      id: "",
+      name: ""
+    };
   }
 
-  componentWillMount() {
-    //Se lance au début de l'application
-    //No matter what
-    //Pas quand le composant apparaît visuellement
-  }
-
+  //C'est bien cette méthode qu'il faut utilier et pas componentWillMount
   componentWillReceiveProps(props) {
     this.setState(props.todoToEdit);
   }
@@ -34,10 +32,9 @@ class EditTodoForm extends Component {
       jwt: this.props.jwt
     };
 
-    //Voilà comment on appelle l'action...
     this.props.editTodoSubmit(postData);
+
     $("#exampleModal").modal("hide");
-    //trigger action
   };
 
   render() {
@@ -63,7 +60,6 @@ class EditTodoForm extends Component {
   }
 }
 const mapStateToProps = state => ({
-  //voir clé dans rootReducer
   todos: state.todos.items,
   userIsLogged: state.logins.logged,
   jwt: state.logins.jwt,
@@ -71,8 +67,4 @@ const mapStateToProps = state => ({
   todoToEdit: state.todos.todoToEdit
 });
 
-//De toute façon il va me falloir une action
-//A mettre ci-dessous
-
-//export default EditTodoForm;
 export default connect(mapStateToProps, { editTodoSubmit })(EditTodoForm);
