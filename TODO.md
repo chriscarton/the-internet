@@ -1,3 +1,3 @@
 # À FAIRE :
 
-logout ne fonctionne pas.
+Gestion des erreurs.

@@ -24,7 +24,7 @@ class Login extends Component {
 
   logout = e => {
     e.preventDefault();
-    alert("logout");
+    this.props.logout();
   };
 
   loginForm() {

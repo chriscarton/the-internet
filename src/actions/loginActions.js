@@ -44,9 +44,7 @@ export const login = postData => dispatch => {
   })();
 };
 
-//Faux logout pour l'instant
 export const logout = () => dispatch => {
-  alert("logout action trigger");
   dispatch({
     type: LOGOUT,
     payload: {}
