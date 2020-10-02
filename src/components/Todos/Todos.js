@@ -30,10 +30,8 @@ class Todos extends Component {
 
   render() {
     let todos = this.props.todos;
-    //let userIsLogged = this.props.userIsLogged;
+    let userIsLogged = this.props.userIsLogged;
     let jwt = this.props.jwt;
-
-    let userIsLogged = true;
 
     return (
       <div id="Todos" className="module">

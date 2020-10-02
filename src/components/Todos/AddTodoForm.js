@@ -23,6 +23,9 @@ class AddTodoForm extends Component {
     };
     //Call action
     this.props.addTodo(todo);
+    this.setState({
+      name: ""
+    });
   };
 
   render() {
@@ -39,7 +42,7 @@ class AddTodoForm extends Component {
               placeholder="Chose à faire"
               onChange={this.handleChange}
               name="name"
-              value={this.props.newTodo.name ?? ""}
+              value={this.state.name}
             />
           </div>
           <div className="form-group text-center">

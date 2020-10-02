@@ -3,10 +3,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { editTodoSubmit } from "../../actions/todosActions";
 
+import $ from "jquery";
+
 class EditTodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { id: "", name: "qdfd" };
+    this.state = { id: "", name: "" };
   }
 
   componentWillMount() {
@@ -23,8 +25,18 @@ class EditTodoForm extends Component {
     this.setState({ name: e.target.value });
   };
 
-  handleSubmit = () => {
-    editTodoSubmit();
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const postData = {
+      id: this.state.id,
+      name: this.state.name,
+      jwt: this.props.jwt
+    };
+
+    //Voilà comment on appelle l'action...
+    this.props.editTodoSubmit(postData);
+    $("#exampleModal").modal("hide");
     //trigger action
   };
 
@@ -37,7 +49,7 @@ class EditTodoForm extends Component {
               className="form-control"
               type="text"
               placeholder="Chose à faire"
-              onChange={() => this.handleChange}
+              onChange={this.handleChange}
               name="name"
               value={this.state.name}
             />

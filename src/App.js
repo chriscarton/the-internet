@@ -29,7 +29,7 @@ function App() {
       </header>
       <div className="container">
         <div className="main-grid">
-          {/* <RandomCat /> */}
+          <RandomCat />
           {/* <Bored /> */}
           {/* <Coiffure /> */}
           {/* <Jokes /> */}

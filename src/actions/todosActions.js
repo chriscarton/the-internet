@@ -1,9 +1,14 @@
-import { FETCH_TODOS, ADD_TODO, REMOVE_TODO, OPEN_MODAL } from "./types";
+import {
+  FETCH_TODOS,
+  ADD_TODO,
+  REMOVE_TODO,
+  OPEN_MODAL,
+  EDIT_TODO_SUBMIT
+} from "./types";
 
 export const fetchTodos = () => dispatch => {
   fetch("http://localhost:1337/todos")
     .then(res => res.json())
-    // .then(data => console.log("data:"))
     .then(data =>
       dispatch({
         type: FETCH_TODOS,
@@ -38,7 +43,6 @@ export const removeTodo = postData => dispatch => {
       "content-type": "application/json",
       Authorization: "Bearer " + postData.jwt
     }
-    //body: JSON.stringify(postData)
   })
     .then(res => res.json())
     .then(data =>
@@ -50,14 +54,6 @@ export const removeTodo = postData => dispatch => {
 };
 
 export const openModal = todoId => dispatch => {
-  //C'est ici que je pourrais fetch...
-  /*
-  dispatch({
-    type: OPEN_MODAL,
-    payload: todoId
-  })
-  */
-
   fetch("http://localhost:1337/todos/" + todoId, {
     method: "GET"
   })
@@ -70,6 +66,20 @@ export const openModal = todoId => dispatch => {
     );
 };
 
-export const editTodoSubmit = todoId => dispatch => {
-  console.log("editTodoSubmit action!");
+export const editTodoSubmit = postData => dispatch => {
+  fetch("http://localhost:1337/todos/" + postData.id, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      Authorization: "Bearer " + postData.jwt
+    },
+    body: JSON.stringify(postData)
+  })
+    .then(res => res.json())
+    .then(data =>
+      dispatch({
+        type: EDIT_TODO_SUBMIT,
+        payload: data
+      })
+    );
 };

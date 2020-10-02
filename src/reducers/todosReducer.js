@@ -37,9 +37,17 @@ export default function (state = initialState, action) {
       return { ...state, todoToEdit: action.payload };
 
     case EDIT_TODO_SUBMIT:
-      console.log("EDIT_TODO_SUBMIT reducer");
-      //For now
-      return state;
+      // console.log(action.payload);
+      const edited_todo = action.payload;
+
+      const filtered2 = state.items.map(function (todo) {
+        if (todo.id === edited_todo.id) {
+          todo = edited_todo;
+        }
+        return todo;
+      });
+
+      return { ...state, items: filtered2 };
 
     default:
       return state;
