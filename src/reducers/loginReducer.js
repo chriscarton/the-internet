@@ -21,7 +21,6 @@ export default function (state = initialState, action) {
         jwt: action.payload.jwt
       };
     case LOGOUT:
-      alert("reducer?");
       return {
         ...state,
         logged: initialState.logged,
