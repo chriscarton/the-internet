@@ -9,3 +9,4 @@ export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 
 export const OPEN_MODAL = "OPEN_MODAL";
+export const EDIT_TODO_SUBMIT = "EDIT_TODO_SUBMIT";

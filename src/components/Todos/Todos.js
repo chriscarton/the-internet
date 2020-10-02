@@ -63,20 +63,6 @@ class Todos extends Component {
             </div>
           ))}
         </div>
-        {/* 
-        
-        PLUS BESOIN DE ÇA POUR L'INSTANT
-        
-        <div id="userIsLogged">
-          {userIsLogged ? (
-            <h1 className="logged">User is logged!</h1>
-          ) : (
-            <h1 className="not-logged">Not logged</h1>
-          )}
-          {jwt}
-        </div> 
-        
-        */}
 
         <div>{userIsLogged && <AddTodoForm jwt={jwt} />}</div>
       </div>
@@ -89,15 +75,11 @@ Todos.propTypes = {
   todos: PropTypes.array.isRequired
 };
 const mapStateToProps = state => ({
-  //voir clé dans rootReducer
   todos: state.todos.items,
-  //Là je vais essayer de faire passer une propriété d'un autre state (Login)
-  //AND IT DID WORK !
   userIsLogged: state.logins.logged,
   jwt: state.logins.jwt,
   newTodo: state.todos.newTodo
 });
-// export default Todos;
 export default connect(mapStateToProps, { fetchTodos, removeTodo, openModal })(
   Todos
 );

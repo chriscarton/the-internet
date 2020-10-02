@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.scss";
 
+//Bootstrap
 import "jquery";
 import "popper.js";
 import "bootstrap/dist/css/bootstrap.min.css";

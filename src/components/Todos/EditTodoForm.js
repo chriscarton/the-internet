@@ -1,27 +1,37 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+import { editTodoSubmit } from "../../actions/todosActions";
+
 class EditTodoForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: ""
-    };
+    this.state = { id: "", name: "qdfd" };
+  }
+
+  componentWillMount() {
+    //Se lance au début de l'application
+    //No matter what
+    //Pas quand le composant apparaît visuellement
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState(props.todoToEdit);
   }
 
   handleChange = e => {
-    console.log("handleChange!!!");
     this.setState({ name: e.target.value });
   };
 
   handleSubmit = () => {
-    console.log("handle submit handle submit...");
+    editTodoSubmit();
+    //trigger action
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          {/* <div>{this.props.jwt}</div> */}
           <div className="form-group">
             <input
               className="form-control"
@@ -40,4 +50,17 @@ class EditTodoForm extends Component {
     );
   }
 }
-export default EditTodoForm;
+const mapStateToProps = state => ({
+  //voir clé dans rootReducer
+  todos: state.todos.items,
+  userIsLogged: state.logins.logged,
+  jwt: state.logins.jwt,
+  newTodo: state.todos.newTodo,
+  todoToEdit: state.todos.todoToEdit
+});
+
+//De toute façon il va me falloir une action
+//A mettre ci-dessous
+
+//export default EditTodoForm;
+export default connect(mapStateToProps, { editTodoSubmit })(EditTodoForm);

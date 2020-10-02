@@ -69,3 +69,7 @@ export const openModal = todoId => dispatch => {
       })
     );
 };
+
+export const editTodoSubmit = todoId => dispatch => {
+  console.log("editTodoSubmit action!");
+};
